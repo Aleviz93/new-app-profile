@@ -49,9 +49,12 @@
             placeholder="Enter Phone"
           >
         </div>
-        <button class="btn btn-primary" @click.prevent="changeProfile()">
+        <button class="btn btn-primary" :disabled="proccesing" @click="changeProfile()">
           Change
         </button>
+        <div v-if="proccesing" class="spinner-border spinner-border-sm" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
       </form>
     </div>
   </div>

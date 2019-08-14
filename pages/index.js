@@ -1,7 +1,8 @@
 export default {
   name: 'index-page',
   data: () => ({
-    profile: {}
+    profile: {},
+    proccesing: false
   }),
   created () {
     this.$axios.$get('https://jsonplaceholder.typicode.com/users')
@@ -12,8 +13,13 @@ export default {
   },
   methods: {
     changeProfile () {
-      this.profile.id = Math.random().toString(8).substr(2, 9)
-      this.$axios.$post('http://localhost:4000/users', this.profile)
+      this.proccesing = true
+      const id = 762015511
+      this.$axios.$put('http://localhost:4000/users/' + id, this.profile).then((data) => {
+        setTimeout(() => {
+          this.proccesing = false
+        }, 1200)
+      })
     }
   }
   // computed: {
