@@ -20,11 +20,11 @@
             <span>{{ errors.first('username') }}</span>
           </small>
         </div>
-        <div class="form-group|name">
+        <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
           <input
             v-model="profile.name"
-            v-validate="'required'"
+            v-validate="'required|name'"
             name="Name"
             type="text"
             class="form-control"
