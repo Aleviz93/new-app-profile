@@ -1,0 +1,31 @@
+{
+  "name": "new-profile-app",
+  "version": "1.0.0",
+  "description": "My rad Nuxt.js project",
+  "author": "Aleviz",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "json": "json-server -p 4000 info.json"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "nuxt": "^2.0.0",
+    "vuelidate": "^0.7.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "sass-loader": "^7.1.0",
+    "node-sass": "^4.12.0"
+  }
+}
