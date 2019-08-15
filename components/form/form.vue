@@ -9,7 +9,6 @@
           name="username"
           type="text"
           class="form-control"
-          aria-describedby="emailHelp"
           :placeholder="$t('enter') + ' ' + $t('username')"
         >
         <small class="text-danger">
@@ -24,7 +23,6 @@
           name="Name"
           type="text"
           class="form-control"
-          aria-describedby="emailHelp"
           :placeholder="$t('enter') + ' ' + $t('name')"
         >
         <small class="text-danger">
@@ -39,7 +37,6 @@
           name="email"
           type="email"
           class="form-control"
-          aria-describedby="emailHelp"
           :placeholder="$t('enter') + ' ' + $t('email')"
         >
         <small class="text-danger">
@@ -50,11 +47,11 @@
         <label>{{ $t('phone') }}</label>
         <input
           v-model="profile.phone"
-          v-validate="'required|phone'"
+          v-validate="'required'"
           name="phone"
           type="text"
+          v-mask="'+7 ### ###-##-##'"
           class="form-control"
-          aria-describedby="emailHelp"
           :placeholder="$t('enter') + ' ' + $t('phone')"
         >
         <small class="text-danger">
