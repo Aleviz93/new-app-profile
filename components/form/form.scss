@@ -1,0 +1,16 @@
+.custom-form {
+  width: 320px;
+
+  label,
+  button {
+    &:first-letter {
+      text-transform: uppercase
+    }
+  }
+
+  .button-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

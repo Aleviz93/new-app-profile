@@ -41,11 +41,35 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'nuxt-i18n'
   ],
+  i18n: {
+    locales: ['en', 'ru'],
+    defaultLocale: 'ru',
+    vueI18n: {
+      fallbackLocale: 'ru',
+      messages: {
+        en: {
+          username: 'username',
+          name: 'name',
+          email: 'email address',
+          phone: 'phone',
+          enter: 'enter',
+          save: 'save'
+        },
+        ru: {
+          username: 'логин',
+          name: 'Ф.И.О.',
+          email: 'адрес электронной почты',
+          phone: 'телефон',
+          enter: 'введите',
+          save: 'сохранить'
+        }
+      }
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

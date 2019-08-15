@@ -1,36 +1,34 @@
+import CustomForm from '../components/form/form.vue'
+
 export default {
   name: 'index-page',
   data: () => ({
-    profile: {},
-    proccesing: false
+    profile: {}
   }),
-  created () {
-    this.$axios.$get('https://jsonplaceholder.typicode.com/users')
-      .then((data) => {
-        const rand = Math.round(0 - 0.5 + Math.random() * (10 - 0 + 1))
-        this.profile = data[rand]
-      })
+  components: {
+    CustomForm
+  },
+  async created () {
+    if (!this.isEmptyObject(this.$store.state.profile.user)) {
+      await this.$store.dispatch('profile/get')
+    }
+  },
+  computed: {
+    user () {
+      return this.$store.state.profile.user
+    }
   },
   methods: {
-    changeProfile () {
-      this.proccesing = true
-      const id = 762015511
-      this.$axios.$put('http://localhost:4000/users/' + id, this.profile).then((data) => {
-        setTimeout(() => {
-          this.proccesing = false
-        }, 1200)
-      })
+    emitFormChange (data) {
+      this.$store.commit('profile/set', data)
+    },
+    isEmptyObject (obj) {
+      for (const i in obj) {
+        if (obj.hasOwnProperty(i)) {
+          return true
+        }
+      }
+      return false
     }
   }
-  // computed: {
-  //   name: {
-  //     get () {
-  //       return this.$store.state.profile.name
-  //     },
-
-  //     set (newName) {
-  //       this.$store.commit('profile/setName', newName)
-  //     }
-  //   }
-  // }
 }
