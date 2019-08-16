@@ -29,7 +29,8 @@ export default {
   */
   plugins: [
     '~/plugins/vee-validate.js',
-    '~/plugins/v-mask.js'
+    '~/plugins/v-mask.js',
+    '~plugins/i18n.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -44,32 +45,25 @@ export default {
   modules: [
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
-    'nuxt-i18n'
+    'nuxt-i18n',
   ],
   i18n: {
-    locales: ['en', 'ru'],
+    locales: [
+      {
+        code: 'en',
+        file: 'en-US.js'
+      },
+      {
+        code: 'ru',
+        file: 'ru-RU.js'
+      }
+    ],
     defaultLocale: 'ru',
     vueI18n: {
       fallbackLocale: 'ru',
-      messages: {
-        en: {
-          username: 'username',
-          name: 'name',
-          email: 'email address',
-          phone: 'phone',
-          enter: 'enter',
-          save: 'save'
-        },
-        ru: {
-          username: 'логин',
-          name: 'Ф.И.О.',
-          email: 'адрес электронной почты',
-          phone: 'телефон',
-          enter: 'введите',
-          save: 'сохранить'
-        }
-      }
-    }
+    },
+    lazy: true,
+    langDir: 'lang/'
   },
   /*
   ** Axios module configuration
@@ -84,7 +78,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }

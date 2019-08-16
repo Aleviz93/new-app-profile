@@ -7,7 +7,6 @@ export default {
   }),
   created () {
     this.profile = { ...this.$store.state.profile.user }
-    
   },
   methods: {
     submit () {

@@ -48,9 +48,9 @@
         <input
           v-model="profile.phone"
           v-validate="'required'"
+          v-mask="'+7 ### ###-##-##'"
           name="phone"
           type="text"
-          v-mask="'+7 ### ###-##-##'"
           class="form-control"
           :placeholder="$t('enter') + ' ' + $t('phone')"
         >

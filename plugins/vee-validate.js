@@ -1,7 +1,16 @@
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
 
-Vue.use(VeeValidate)
+import ru from 'vee-validate/dist/locale/ru'
+import en from 'vee-validate/dist/locale/en'
+
+Vue.use(VeeValidate, {
+  locale: 'ru',
+  dictionary: {
+    en: { messages: en },
+    ru: { messages: ru }
+  }
+})
 
 VeeValidate.Validator.extend('name', {
   getMessage: () => 'Введите допустимые символы',
